@@ -51,6 +51,8 @@ add_user_to_docker_group() {
     sudo groupadd docker
     sudo usermod -aG docker $USER
     newgrp docker
+    sudo docker volume create portainer_data
+
 }
 
 #######################################
