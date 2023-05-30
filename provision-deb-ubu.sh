@@ -75,7 +75,6 @@ elif [[ "$(cat /etc/os-release | grep -w ID | cut -d'=' -f2)" == "ubuntu" ]]; th
 else
     echo "Distributie niet ondersteund."
     exit 1
-fi
 
 add_user_to_docker_group
 install_portainer
