@@ -1,19 +1,5 @@
 #!/bin/bash
 
-#######################################
-##    Bepalen welke docker versie    ##
-#######################################
-
-if [[ "$(cat /etc/os-release | grep -w ID | cut -d'=' -f2)" == "debian" ]]; then
-    echo "Debian gevonden. Installeren van Docker voor Debian..."
-    install_docker_debian
-elif [[ "$(cat /etc/os-release | grep -w ID | cut -d'=' -f2)" == "ubuntu" ]]; then
-    echo "Ubuntu gevonden. Installeren van Docker voor Ubuntu..."
-    install_docker_ubuntu
-else
-    echo "Distributie niet ondersteund."
-    exit 1
-fi
 
 #######################################
 ##  Installeren van Docker (Debian)  ##
@@ -57,6 +43,21 @@ install_docker_ubuntu() {
     sudo apt-get update
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 }
+
+#######################################
+##    Bepalen welke docker versie    ##
+#######################################
+
+if [[ "$(cat /etc/os-release | grep -w ID | cut -d'=' -f2)" == "debian" ]]; then
+    echo "Debian gevonden. Installeren van Docker voor Debian..."
+    install_docker_debian
+elif [[ "$(cat /etc/os-release | grep -w ID | cut -d'=' -f2)" == "ubuntu" ]]; then
+    echo "Ubuntu gevonden. Installeren van Docker voor Ubuntu..."
+    install_docker_ubuntu
+else
+    echo "Distributie niet ondersteund."
+    exit 1
+fi
 
 #######################################
 ##  Voeg USER toe aan docker groep  ##
