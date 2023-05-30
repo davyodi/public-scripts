@@ -47,17 +47,11 @@ install_docker_ubuntu() {
 ##  Voeg USER toe aan docker groep  ##
 #######################################
 
-add_user_to_docker_group() {
-
-}
 
 #######################################
 ##   Installeren van Portainer       ##
 #######################################
 
-install_portainer() {
-
-}
 
 #######################################
 ##    Script-uitvoering              ##
